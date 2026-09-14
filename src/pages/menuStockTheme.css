@@ -1,0 +1,56 @@
+/* ────────────────────────────────────────────────────────────────
+   Menu & Stock — page-scoped theme override.
+   Everything under .menu-stock-scope resolves the SAME semantic
+   utility classes (bg-surface, text-ink, border-border, …) that the
+   rest of the app uses — we're only swapping what those variables
+   point to, only inside this page. No other page is affected, and
+   nothing in Supabase/the data layer changes.
+   ──────────────────────────────────────────────────────────────── */
+.menu-stock-scope {
+  --color-bg: #070D18;
+  --color-surface: #0F1726;
+  --color-surface-raised: #0B1220;   /* input backgrounds */
+  --color-surface-hover: #141F33;
+  --color-elevated: #121C2D;
+  --color-border: #1D2A3D;
+
+  --color-brand-start: #7C3AED;
+  --color-brand-end: #8B5CF6;
+  --color-accent: #8B5CF6;
+  --color-accent-soft: #8B5CF61F;
+
+  --color-success: #22C55E;
+  --color-success-soft: #22C55E1A;
+  --color-warning: #F59E0B;
+  --color-warning-soft: #F59E0B1A;
+  --color-danger: #EF4444;
+  --color-danger-soft: #EF44441A;
+
+  --color-ink: #F8FAFC;
+  --color-ink-muted: #94A3B8;
+  --color-ink-faint: #64748B;
+
+  --font-display: 'Inter', system-ui, sans-serif;
+
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  min-height: 100%;
+}
+
+.menu-stock-scope .input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.625rem;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  color: var(--color-ink);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.menu-stock-scope .input:focus {
+  border-color: var(--color-brand-end);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-end) 15%, transparent);
+}
+.menu-stock-scope .input::placeholder { color: var(--color-ink-faint); }
+.menu-stock-scope select.input option { background-color: var(--color-surface-raised); }
